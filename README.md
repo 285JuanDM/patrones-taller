@@ -3,9 +3,9 @@
 ---
 
 ### Integrantes
-- **Sofía Vargas Garzón**
-- **Oscar David Vergara**
-- **Juan David Moreno**
+- Sofía Vargas Garzón
+- Oscar David Vergara
+- Juan David Moreno
 
 ## Diagramas de clases
 
