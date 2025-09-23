@@ -1,7 +1,5 @@
 <h1 align="center"> 📘 Taller de Patrones de Diseño </h1>
 
----
-
 ### Integrantes
 - Sofía Vargas Garzón
 - Oscar David Vergara
