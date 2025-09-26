@@ -10,5 +10,7 @@
 ### Ejercicio 1
 
 ### Ejercicio 2
+Primero compilar los archivos con el comando javac *.java
+Segundo correr el main class con el comando  java SistemaNotificaciones
 
 ### Ejercicio 3
