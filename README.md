@@ -5,15 +5,58 @@
 - Oscar David Vergara
 - Juan David Moreno
 
-## Diagramas de clases
+## Ejercicio 1
 
-### Ejercicio 1
+**Tipo de patrón escogido:** Creacional
 
-### Ejercicio 2
+**Patrón de diseño escogido:** Build
+
+Se escogió el patrón Builder porque permite crear un objeto complejo como un automóvil de forma clara y flexible, evitando constructores con muchos parámetros. De esta manera, el usuario puede personalizar solo las opciones que desee sin necesidad de usar todas, mejorando la legibilidad y manteniendo el objeto final inmutable.
+
+### Diagrama de clases
+
+```mermaid
+classDiagram
+    class Automovil {
+        - motor : String
+        - color : String
+        - llantas : String
+        - sonido : String
+        - interiores : String
+        - techoSolar : boolean
+        - gps : boolean
+        + getMotor() String
+        + getColor() String
+        + getLlantas() String
+        + ...
+    }
+
+    class AutomovilBuilder {
+        - motor : String
+        - color : String
+        - llantas : String
+        - sonido : String
+        - interiores : String
+        - techoSolar : boolean
+        - gps : boolean
+        + setMotor(String) AutomovilBuilder
+        + setColor(String) AutomovilBuilder
+        + setLlantas(String) AutomovilBuilder
+        + setSonido(String) AutomovilBuilder
+        + setInteriores(String) AutomovilBuilder
+        + setTechoSolar(boolean) AutomovilBuilder
+        + setGps(boolean) AutomovilBuilder
+        + build() Automovil
+    }
+
+    AutomovilBuilder --> Automovil
+```
+
+## Ejercicio 2
 
 **Patrón Estructural - Bridge (Puente)**
 
-**¿Por qué Bridge?**  
+**¿Por qué Bridge?**
 Separa la abstracción (tipos de notificación) de su implementación (plataformas)
 
 ```mermaid
@@ -127,4 +170,4 @@ java SistemaNotificaciones
 ```
 
 
-### Ejercicio 3
+## Ejercicio 3
