@@ -1,4 +1,4 @@
-<h1 align="center"> 📘 Taller de Patrones de Diseño </h1>
+# 📘 Taller de Patrones de Diseño
 
 ### Integrantes
 - Sofía Vargas Garzón
@@ -10,10 +10,13 @@
 ### Ejercicio 1
 
 ### Ejercicio 2
-Patrón Estructural - Bridge (Puente)
-¿Por qué Bridge?
-R// Separa la abstracción (tipos de notificación) de su implementación (plataformas)
 
+**Patrón Estructural - Bridge (Puente)**
+
+**¿Por qué Bridge?**  
+Separa la abstracción (tipos de notificación) de su implementación (plataformas)
+
+```mermaid
 classDiagram
     %% Abstraction Hierarchy
     class Notificacion {
@@ -22,7 +25,7 @@ classDiagram
         -String titulo
         -String contenido
         +Notificacion(implementador, titulo, contenido)
-        +mostrar()* void
+        +mostrar() void
         +cambiarPlataforma(nuevaPlataforma) void
     }
     
@@ -78,10 +81,14 @@ classDiagram
     PlataformaWeb ..|> Plataforma
     PlataformaMovil ..|> Plataforma
     PlataformaEscritorio ..|> Plataforma
+```
 
-    Abstraction Hierarchy          Implementation Hierarchy
+#### Estructura del Patrón Bridge
+
+```
+Abstraction Hierarchy          Implementation Hierarchy
 ┌─────────────────┐           ┌──────────────────────┐
-│   Notificacion  │◆─────────▶│     Plataforma       │
+│   Notificacion  │◇─────────▶│     Plataforma       │
 │   (abstract)    │           │    (interface)       │
 └─────────────────┘           └──────────────────────┘
          │                              │
@@ -91,8 +98,11 @@ classDiagram
 ┌─────┐┌────┐┌─────┐        ┌──────┐┌──────┐┌──────┐
 │Msj  ││Alrt││Warn │        │ Web  ││Movil ││Escrt │
 └─────┘└────┘└─────┘        └──────┘└──────┘└──────┘
+```
 
- Estructura del Ejercicio
+#### Estructura del Proyecto
+
+```
 📦 Ejercicio2/
 ├── 📄 Plataforma.java              # Interface base
 ├── 📄 PlataformaWeb.java           # Implementación Web
@@ -104,12 +114,17 @@ classDiagram
 ├── 📄 NotificacionAdvertencia.java # Tipo Advertencia
 ├── 📄 NotificacionConfirmacion.java# Tipo Confirmación
 └── 📄 SistemaNotificaciones.java   # Clase principal
+```
 
-Ejecución
-bash# Compilar
+#### Ejecución
+
+```bash
+# Compilar
 javac *.java
 
 # Ejecutar
 java SistemaNotificaciones
+```
+
 
 ### Ejercicio 3
