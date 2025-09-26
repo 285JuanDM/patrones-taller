@@ -49,7 +49,12 @@ classDiagram
         + build() Automovil
     }
 
+    class Cliente {
+        + main()
+    }
+
     AutomovilBuilder --> Automovil
+    Cliente --> AutomovilBuilder : "usa"
 ```
 
 ## Ejercicio 2
