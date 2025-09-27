@@ -182,6 +182,7 @@ Se escogió este patrón porque permite el **desacoplamiento**: los usuarios ya 
 
 ## Diagrama de Clases
 
+```mermaid
 classDiagram
     class MediatorI {
         <<interface>>
@@ -214,3 +215,4 @@ classDiagram
     UserI <|-- ChatUser
     MediatorI <|.. ChatMediatorImpl
     ChatMediatorImpl "1" o-- "*" UserI
+```
