@@ -176,43 +176,43 @@ java SistemaNotificaciones
 
 
 ### Ejercicio 3
-**Tipo y Patron escogido:** Patron de Comportamiento Mediator
+**Tipo de Patrón escogido:** de Comportamiento
+**Patrón de diseño escogido:** Mediator
 
-Se escogió este patrón porque permite el **desacoplamiento**: los usuarios ya no interactúan directamente entre sí, sino a través de un mediador. Este bajo acoplamiento no solo facilita la **mantenibilidad** del sistema al centralizar la comunicación, sino que también favorece la **escalabilidad**. Si se agrega o elimina un usuario, el cambio no afectará a los demás.
+Se escogió este patrón porque permite el **desacoplamiento** , dado que, los usuarios ya no interactúan directamente entre sí, sino a través de un mediador. Este bajo acoplamiento no solo facilita la **mantenibilidad** del sistema al centralizar la comunicación, sino que también favorece la **escalabilidad**, porque si se agrega o elimina un usuario, el cambio no afectaría a los demás.
 
-## Diagrama de Clases
+# Diagrama de Clases
 
 ```mermaid
 classDiagram
     class MediatorI {
-        <<interface>>
-        +show_message(user: UserI, message: str)
+        <<abstract>>
+        +show_message(user: UserI, message: str)* void
     }
-
+    
+    class ChatMediatorImpl {
+        -users: List~UserI~
+        +__init__()
+        +add_user(user: UserI) void
+        +show_message(user: UserI, message: str) void
+    }
+    
     class UserI {
         <<abstract>>
-        #name : str
-        #mediator : MediatorI
+        #name: str
+        #mediator: MediatorI
         +__init__(name: str, mediator: MediatorI)
-        +send(message: str)
+        +send(message: str)* void
     }
-
+    
     class ChatUser {
-        +__init__(name: str, mediator: MediatorI)
-        +send(message: str)
-        +receive(message: str, user: UserI)
-        +getName() str
+        +send(message: str) void
     }
-
-    class ChatMediatorImpl {
-        -users : List<UserI>
-        +__init__()
-        +add_user(user: UserI)
-        +show_message(user: UserI, message: str)
-    }
-
+    
     %% Relaciones
-    UserI <|-- ChatUser
-    MediatorI <|.. ChatMediatorImpl
-    ChatMediatorImpl "1" o-- "*" UserI
+    MediatorI <|-- ChatMediatorImpl : implements
+    UserI <|-- ChatUser : implements
+    ChatMediatorImpl --> UserI : manages
+    UserI --> MediatorI : uses
+    ChatUser --> MediatorI : communicates through
 ```
