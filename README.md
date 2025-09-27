@@ -59,9 +59,10 @@ classDiagram
 
 ## Ejercicio 2
 
-**Patrón Estructural - Bridge (Puente)**
+**Tipo de patrón escogido:** Estructural
 
-**¿Por qué Bridge?**
+**Patrón de diseño escogido:** Bridge
+
 Separa la abstracción (tipos de notificación) de su implementación (plataformas)
 
 ```mermaid
@@ -148,22 +149,6 @@ Abstraction Hierarchy          Implementation Hierarchy
 └─────┘└────┘└─────┘        └──────┘└──────┘└──────┘
 ```
 
-#### Estructura del Proyecto
-
-```
-📦 Ejercicio2/
-├── 📄 Plataforma.java              # Interface base
-├── 📄 PlataformaWeb.java           # Implementación Web
-├── 📄 PlataformaMovil.java         # Implementación Móvil  
-├── 📄 PlataformaEscritorio.java    # Implementación Escritorio
-├── 📄 Notificacion.java            # Clase abstracta base
-├── 📄 NotificacionMensaje.java     # Tipo Mensaje
-├── 📄 NotificacionAlerta.java      # Tipo Alerta
-├── 📄 NotificacionAdvertencia.java # Tipo Advertencia
-├── 📄 NotificacionConfirmacion.java# Tipo Confirmación
-└── 📄 SistemaNotificaciones.java   # Clase principal
-```
-
 #### Ejecución
 
 ```bash
@@ -177,6 +162,7 @@ java SistemaNotificaciones
 
 ### Ejercicio 3
 **Tipo de Patrón escogido:** de Comportamiento
+
 **Patrón de diseño escogido:** Mediator
 
 Se escogió este patrón porque permite el **desacoplamiento** , dado que, los usuarios ya no interactúan directamente entre sí, sino a través de un mediador. Este bajo acoplamiento no solo facilita la **mantenibilidad** del sistema al centralizar la comunicación, sino que también favorece la **escalabilidad**, porque si se agrega o elimina un usuario, el cambio no afectaría a los demás.
