@@ -181,7 +181,7 @@ java SistemaNotificaciones
 
 Se escogió este patrón porque permite el **desacoplamiento** , dado que, los usuarios ya no interactúan directamente entre sí, sino a través de un mediador. Este bajo acoplamiento no solo facilita la **mantenibilidad** del sistema al centralizar la comunicación, sino que también favorece la **escalabilidad**, porque si se agrega o elimina un usuario, el cambio no afectaría a los demás.
 
-# Diagrama de Clases
+### Diagrama de Clases
 
 ```mermaid
 classDiagram
