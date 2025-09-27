@@ -1,19 +1,70 @@
-<h1 align="center"> 📘 Taller de Patrones de Diseño </h1>
+# 📘 Taller de Patrones de Diseño
 
 ### Integrantes
 - Sofía Vargas Garzón
 - Oscar David Vergara
 - Juan David Moreno
 
-## Diagramas de clases
+## Ejercicio 1
 
-### Ejercicio 1
+**Tipo de patrón escogido:** Creacional
 
-### Ejercicio 2
-Patrón Estructural - Bridge (Puente)
-¿Por qué Bridge?
-R// Separa la abstracción (tipos de notificación) de su implementación (plataformas)
+**Patrón de diseño escogido:** Build
 
+Se escogió el patrón Builder porque permite crear un objeto complejo como un automóvil de forma clara y flexible, evitando constructores con muchos parámetros. De esta manera, el usuario puede personalizar solo las opciones que desee sin necesidad de usar todas, mejorando la legibilidad y manteniendo el objeto final inmutable.
+
+### Diagrama de clases
+
+```mermaid
+classDiagram
+    class Automovil {
+        - motor : String
+        - color : String
+        - llantas : String
+        - sonido : String
+        - interiores : String
+        - techoSolar : boolean
+        - gps : boolean
+        + getMotor() String
+        + getColor() String
+        + getLlantas() String
+        + ...
+    }
+
+    class AutomovilBuilder {
+        - motor : String
+        - color : String
+        - llantas : String
+        - sonido : String
+        - interiores : String
+        - techoSolar : boolean
+        - gps : boolean
+        + setMotor(String) AutomovilBuilder
+        + setColor(String) AutomovilBuilder
+        + setLlantas(String) AutomovilBuilder
+        + setSonido(String) AutomovilBuilder
+        + setInteriores(String) AutomovilBuilder
+        + setTechoSolar(boolean) AutomovilBuilder
+        + setGps(boolean) AutomovilBuilder
+        + build() Automovil
+    }
+
+    class Cliente {
+        + main()
+    }
+
+    AutomovilBuilder --> Automovil
+    Cliente --> AutomovilBuilder : "usa"
+```
+
+## Ejercicio 2
+
+**Patrón Estructural - Bridge (Puente)**
+
+**¿Por qué Bridge?**
+Separa la abstracción (tipos de notificación) de su implementación (plataformas)
+
+```mermaid
 classDiagram
     %% Abstraction Hierarchy
     class Notificacion {
@@ -22,7 +73,7 @@ classDiagram
         -String titulo
         -String contenido
         +Notificacion(implementador, titulo, contenido)
-        +mostrar()* void
+        +mostrar() void
         +cambiarPlataforma(nuevaPlataforma) void
     }
     
@@ -78,10 +129,14 @@ classDiagram
     PlataformaWeb ..|> Plataforma
     PlataformaMovil ..|> Plataforma
     PlataformaEscritorio ..|> Plataforma
+```
 
-    Abstraction Hierarchy          Implementation Hierarchy
+#### Estructura del Patrón Bridge
+
+```
+Abstraction Hierarchy          Implementation Hierarchy
 ┌─────────────────┐           ┌──────────────────────┐
-│   Notificacion  │◆─────────▶│     Plataforma       │
+│   Notificacion  │◇─────────▶│     Plataforma       │
 │   (abstract)    │           │    (interface)       │
 └─────────────────┘           └──────────────────────┘
          │                              │
@@ -91,8 +146,11 @@ classDiagram
 ┌─────┐┌────┐┌─────┐        ┌──────┐┌──────┐┌──────┐
 │Msj  ││Alrt││Warn │        │ Web  ││Movil ││Escrt │
 └─────┘└────┘└─────┘        └──────┘└──────┘└──────┘
+```
 
- Estructura del Ejercicio
+#### Estructura del Proyecto
+
+```
 📦 Ejercicio2/
 ├── 📄 Plataforma.java              # Interface base
 ├── 📄 PlataformaWeb.java           # Implementación Web
@@ -104,13 +162,18 @@ classDiagram
 ├── 📄 NotificacionAdvertencia.java # Tipo Advertencia
 ├── 📄 NotificacionConfirmacion.java# Tipo Confirmación
 └── 📄 SistemaNotificaciones.java   # Clase principal
+```
 
-Ejecución
-bash# Compilar
+#### Ejecución
+
+```bash
+# Compilar
 javac *.java
 
 # Ejecutar
 java SistemaNotificaciones
+```
+
 
 ### Ejercicio 3
 ** Tipo y Patron escogido:** Patron de Comportamiento Mediator
@@ -151,5 +214,6 @@ classDiagram
     UserI <|-- ChatUser
     MediatorI <|.. ChatMediatorImpl
     ChatMediatorImpl "1" o-- "*" UserI
+
 
 
