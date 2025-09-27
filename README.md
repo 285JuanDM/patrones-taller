@@ -176,9 +176,9 @@ java SistemaNotificaciones
 
 
 ### Ejercicio 3
-** Tipo y Patron escogido:** Patron de Comportamiento Mediator
+**Tipo y Patron escogido:** Patron de Comportamiento Mediator
 
-Se escogió este patrón porque permite el ** desacoplamiento **: los usuarios ya no interactúan directamente entre sí, sino a través de un mediador. Este bajo acoplamiento no solo facilita la ** mantenibilidad ** del sistema al centralizar la comunicación, sino que también favorece la ** escalabilidad **. Si se agrega o elimina un usuario, el cambio no afectará a los demás.
+Se escogió este patrón porque permite el **desacoplamiento**: los usuarios ya no interactúan directamente entre sí, sino a través de un mediador. Este bajo acoplamiento no solo facilita la **mantenibilidad** del sistema al centralizar la comunicación, sino que también favorece la **escalabilidad**. Si se agrega o elimina un usuario, el cambio no afectará a los demás.
 
 ## Diagrama de Clases
 
@@ -214,6 +214,3 @@ classDiagram
     UserI <|-- ChatUser
     MediatorI <|.. ChatMediatorImpl
     ChatMediatorImpl "1" o-- "*" UserI
-
-
-
